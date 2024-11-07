@@ -23,9 +23,6 @@ h1 {
 
 h2 {
     color: #333;
-    border-bottom: 2px solid #f2f2f2;
-    padding-bottom: 8px;
-    margin-top: 20px;
     font-size: 1.4em;
 }
 
@@ -82,13 +79,55 @@ button:hover {
     background: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#resume-preview h2 {
     text-align: center;
+    font-size: 1.6em;
+    margin-top: 0;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+#resume-preview section {
+    margin-top: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#resume-preview p, #resume-preview ul {
+    margin: 8px 0;
+}
+
+#profile-picture-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: block;
+    object-fit: cover;
+}
+#resume-preview {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
 }
 
 #profile-picture-preview {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin-bottom: 15px;
-    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }
