@@ -1,3 +1,5 @@
+import jsPDF from "jspdf";
+
 function handleFormSubmit(event: Event): void {
     event.preventDefault();
 
@@ -79,3 +81,28 @@ function generateResumePreview(data: {
 }
 
 document.getElementById('resume-form')?.addEventListener('submit', handleFormSubmit);
+
+function downloadResumeAsPDF() {
+    const doc = new jsPDF();
+
+    // Customize the PDF content and layout here
+    doc.text("Professional Resume", 10, 10);
+    doc.text(`Name: ${(document.getElementById("name") as HTMLInputElement).value}`, 10, 20);
+    doc.text(`Email: ${(document.getElementById("email") as HTMLInputElement).value}`, 10, 30);
+    doc.text(`Phone: ${(document.getElementById("phone") as HTMLInputElement).value}`, 10, 40);
+    doc.text(`Address: ${(document.getElementById("address") as HTMLInputElement).value}`, 10, 50);
+
+    const skills = (document.getElementById("skills") as HTMLTextAreaElement).value.split("\n");
+    doc.text("Skills:", 10, 60);
+    skills.forEach((skill, index) => {
+        doc.text(`- ${skill}`, 10, 70 + index * 10);
+    });
+
+    const education = (document.getElementById("education") as HTMLTextAreaElement).value;
+    doc.text("Education:", 10, 90);
+    doc.text(education, 10, 100);
+
+    doc.save("resume.pdf");
+}
+
+document.getElementById("download-resume")?.addEventListener("click", downloadResumeAsPDF);
